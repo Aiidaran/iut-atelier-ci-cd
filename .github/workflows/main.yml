@@ -26,5 +26,8 @@ jobs:
     needs: build-test # Indique que ce job démarre uniquement si le job 'build-test' est un succès
     steps:
       - uses: actions/checkout@v2 # Ne pas toucher
-      - name: "[CD] Publication du code"
-        run: exit 1 # TODO
+      - uses: BogDAAAMN/deta-deploy-action@v1.0.1
+        with:
+          deta-access-token: ${{ secrets.DETA }} #Deta access token https://docs.deta.sh/docs/cli/auth
+          deta-name: 'atelier' #Deta Micro name https://docs.deta.sh/docs/cli/commands/#deta-clone
+          deta-project-dir: 'atelier/
