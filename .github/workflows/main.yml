@@ -2,7 +2,7 @@ name: CI/CD pour Atelier 1
 # Controle de la chaine CI/CD
 on:
   push: 
-    branches: [alt1_actif]
+    branches: [atl1_actif]
 
 
 # Les taches (jobs) à effectuer
