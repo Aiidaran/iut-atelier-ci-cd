@@ -73,27 +73,28 @@ def home() -> dict:
     }
 
 
- @app.get("/ecoles")
- def ecoles(groupe: Optional[str] = None) -> dict:
-     """Liste tous les écoles disponible dans la base de données.
-     Args:
-         groupe (Optional[str], optional): Filtre les écoles par leur groupe. Defaults to None.
-     Returns:
-         dict: écoles selon les filtres donnés en format JSON
-     """
-     return (
-         {
-             _id: ecole
-             for _id, ecole in __get_ecoles().items()
-             if ecole["groupe"] == groupe
-         }
-         if groupe
-         else __get_ecoles()
-     )
+@app.get("/ecoles")
+def ecoles(groupe: Optional[str] = None) -> dict:
+    """Liste tous les écoles disponible dans la base de données.
+    Args:
+        groupe (Optional[str], optional): Filtre les écoles par leur groupe. Defaults to None.
+    Returns:
+        dict: écoles selon les filtres donnés en format JSON
+    """
+    return (
+        {
+            _id: ecole
+            for _id, ecole in __get_ecoles().items()
+            if ecole["groupe"] == groupe
+        }
+        if groupe
+        else __get_ecoles()
+    )
+
 
 
 # TODO a completer
-def ajouter_ecole() -> dict: # TODO a completer
+def ajouter_ecole() -> dict:  # TODO a completer
     """Ajoute une école dans la BDD par les paramètres {nom} et {groupe}.
 
     Args:
@@ -103,22 +104,23 @@ def ajouter_ecole() -> dict: # TODO a completer
         dict: Renvoie l'école qui a été ajoutée
     """
     # TODO a completer
-    return 
+    return
 
- @app.get("/ecoles/{ecole_id}")
- def ecole_par_id(ecole_id: str) -> dict:
-     """Liste l'école possédant l'id {ecole_id}.
-     Args:
-         ecole_id (str): identifiant de l'école
-     Raises:
-         HTTPException: {ecole_id} inconnu
-     Returns:
-         dict: école en format JSON
-     """
-     ecole = __get_ecoles().get(ecole_id)
-     if not ecole:
-         raise HTTPException(
-             status_code=404,
-             detail=f"Ecole pour id={ecole_id} est inexistante dans notre base de données.",
-         )
-     return ecole
+@app.get("/ecoles/{ecole_id}")
+def ecole_par_id(ecole_id: str) -> dict:
+    """Liste l'école possédant l'id {ecole_id}.
+    Args:
+        ecole_id (str): identifiant de l'école
+    Raises:
+        HTTPException: {ecole_id} inconnu
+    Returns:
+        dict: école en format JSON
+    """
+    ecole = __get_ecoles().get(ecole_id)
+    if not ecole:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Ecole pour id={ecole_id} est inexistante dans notre base de données.",
+        )
+    return ecole
+
