@@ -30,4 +30,4 @@ jobs:
         with:
           deta-access-token: ${{ secrets.DETA }} #Deta access token https://docs.deta.sh/docs/cli/auth
           deta-name: 'atelier' #Deta Micro name https://docs.deta.sh/docs/cli/commands/#deta-clone
-          deta-project-dir: 'atelier/
+          deta-project-dir: 'atelier/'
