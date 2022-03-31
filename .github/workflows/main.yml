@@ -15,7 +15,7 @@ jobs:
       - name: "[DEBUG] Lister l'arborescence de fichiers sur le serveur"
         run: ls -l . # étape informative
       - name: "[CI] Test du code"
-        run: atelier/test.sh && cd atelier
+        run: atelier && atelier/test.sh
       - name: "[CD] Publication du code"
         run: echo KO #TODO A completer
         
